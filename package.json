@@ -69,7 +69,7 @@
   "bugs": "https://github.com/ckeditor/ckeditor5/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sergeypayu/ckeditor5-build-custom.git",
+    "url": "https://github.com/sergeypayu/ckeditor5-build-custom.git"
   },
   "scripts": {
     "build": "webpack --mode production",
