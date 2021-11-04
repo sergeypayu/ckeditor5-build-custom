@@ -32,6 +32,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
+import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -61,7 +62,8 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	SourceEditing
+	SourceEditing,
+	RemoveFormat,
 ];
 
 // Editor configuration.
@@ -70,6 +72,7 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'removeFormat',
 			'bold',
 			'italic',
 			'link',
@@ -85,6 +88,7 @@ ClassicEditor.defaultConfig = {
 			'mediaEmbed',
 			'undo',
 			'redo',
+			'|',
 			'sourceEditing',
 		]
 	},
