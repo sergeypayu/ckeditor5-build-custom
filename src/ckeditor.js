@@ -33,6 +33,9 @@ import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices'
 
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
+import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
+import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
+
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -64,6 +67,8 @@ ClassicEditor.builtinPlugins = [
 	TextTransformation,
 	SourceEditing,
 	RemoveFormat,
+	SpecialCharacters,
+	SpecialCharactersEssentials,
 ];
 
 // Editor configuration.
@@ -75,6 +80,7 @@ ClassicEditor.defaultConfig = {
 			'removeFormat',
 			'bold',
 			'italic',
+			'specialCharacters',
 			'link',
 			'bulletedList',
 			'numberedList',

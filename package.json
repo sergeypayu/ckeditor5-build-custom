@@ -1,6 +1,6 @@
 {
   "name": "@taxer/ckeditor5-build-custom",
-  "version": "31.0.2",
+  "version": "31.0.3",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
     "ckeditor5-build",
@@ -45,6 +45,7 @@
     "@ckeditor/ckeditor5-paste-from-office": "^31.0.0",
     "@ckeditor/ckeditor5-remove-format": "^31.0.0",
     "@ckeditor/ckeditor5-source-editing": "^31.0.0",
+    "@ckeditor/ckeditor5-special-characters": "^31.0.0",
     "@ckeditor/ckeditor5-table": "^31.0.0",
     "@ckeditor/ckeditor5-typing": "^31.0.0"
   },
