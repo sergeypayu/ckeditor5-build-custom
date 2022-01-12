@@ -42,7 +42,7 @@ export default class FileBrowserCommand extends Command {
 			throw new CKEditorError('filebrowser-missing-browse-url', editor);
 		}
 
-		const fileBrowserUrl = new URL(browseUrl);
+		const fileBrowserUrl = new URL(browseUrl, window.location.href);
 		fileBrowserUrl.searchParams.set('editor', editor.id);
 
 		function messageHandler(event) {
