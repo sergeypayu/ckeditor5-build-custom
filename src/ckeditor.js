@@ -36,6 +36,7 @@ import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
 import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
 
+import { FileBrowser } from './plugins/file-browser/src';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -69,6 +70,7 @@ ClassicEditor.builtinPlugins = [
 	RemoveFormat,
 	SpecialCharacters,
 	SpecialCharactersEssentials,
+	FileBrowser,
 ];
 
 // Editor configuration.
@@ -89,6 +91,7 @@ ClassicEditor.defaultConfig = {
 			'indent',
 			'|',
 			'uploadImage',
+			'fileBrowser',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
