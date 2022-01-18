@@ -67,7 +67,7 @@ export default class FileBrowserCommand extends Command {
 		window.addEventListener('message', this.messageHandlerListener, false);
 
 		// open popup
-		const popupWindow = window.open(fileBrowserUrl, t('Insert image or file'),'popup,left=100,top=100,width=640,height=480');
+		const popupWindow = window.open(fileBrowserUrl, t('Insert image or file'),'popup,left=100,top=100,width=930,height=800');
 
 		// check if popup is closed in polling cycle
 		this.pollTimer = window.setInterval(() => {
