@@ -35,9 +35,9 @@ import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
 import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
-import { SimpleUploadAdapter } from '@ckeditor/ckeditor5-upload';
 
 import { FileBrowser } from './plugins/file-browser/src';
+import { TextTemplates } from "./plugins/text-templates/src";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -71,8 +71,8 @@ ClassicEditor.builtinPlugins = [
 	RemoveFormat,
 	SpecialCharacters,
 	SpecialCharactersEssentials,
-	SimpleUploadAdapter,
 	FileBrowser,
+	TextTemplates,
 ];
 
 // Editor configuration.
@@ -95,6 +95,7 @@ ClassicEditor.defaultConfig = {
 			'uploadImage',
 			'fileBrowser',
 			'blockQuote',
+			'textTemplates',
 			'insertTable',
 			'mediaEmbed',
 			'undo',
