@@ -1,4 +1,4 @@
-import {View} from 'ckeditor5/src/ui';
+import { View } from 'ckeditor5/src/ui';
 
 import '../../theme/texttemplatesemptyview.css';
 

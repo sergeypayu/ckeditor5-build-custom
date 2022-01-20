@@ -1,11 +1,11 @@
-import {Plugin} from '@ckeditor/ckeditor5-core/src';
+import { Plugin } from '@ckeditor/ckeditor5-core/src';
 import getSelectedContent from '@ckeditor/ckeditor5-engine/src/model/utils/getselectedcontent';
-import {createDropdown} from 'ckeditor5/src/ui';
+import { createDropdown } from 'ckeditor5/src/ui';
 
-import templatesTextIcon from "../theme/icons/templates-text.svg";
-import TextTemplatesEmptyView from "./ui/texttemplatesemptyview";
-import TextTemplatesFormView from "./ui/texttemplatesformview";
-import TextTemplatesListView from "./ui/texttemplateslistview";
+import templatesTextIcon from '../theme/icons/templates-text.svg';
+import TextTemplatesEmptyView from './ui/texttemplatesemptyview';
+import TextTemplatesFormView from './ui/texttemplatesformview';
+import TextTemplatesListView from './ui/texttemplateslistview';
 
 export default class TextTemplates extends Plugin {
     /**
@@ -17,8 +17,6 @@ export default class TextTemplates extends Plugin {
 
     constructor(editor) {
         super(editor);
-
-        this.ckTextTemplates = localStorage.getItem('ckTextTemplates');
     }
 
     init() {

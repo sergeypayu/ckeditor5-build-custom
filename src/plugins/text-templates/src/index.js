@@ -1,1 +1,1 @@
-export {default as TextTemplates} from './texttemplates';
+export { default as TextTemplates } from './texttemplates';

@@ -1,4 +1,4 @@
-import {FocusTracker, KeystrokeHandler} from 'ckeditor5/src/utils';
+import { FocusTracker, KeystrokeHandler } from 'ckeditor5/src/utils';
 import {
     View,
     createLabeledInputText,
@@ -7,7 +7,7 @@ import {
     submitHandler,
     ViewCollection
 } from 'ckeditor5/src/ui';
-import {icons} from 'ckeditor5/src/core';
+import { icons } from 'ckeditor5/src/core';
 
 import '../../theme/texttemplatesformview.css'
 
