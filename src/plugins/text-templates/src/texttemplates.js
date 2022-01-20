@@ -1,6 +1,6 @@
 import { Plugin } from '@ckeditor/ckeditor5-core/src';
 import getSelectedContent from '@ckeditor/ckeditor5-engine/src/model/utils/getselectedcontent';
-import { createDropdown } from 'ckeditor5/src/ui';
+import { createDropdown } from '@ckeditor/ckeditor5-ui';
 
 import templatesTextIcon from '../theme/icons/templates-text.svg';
 import TextTemplatesEmptyView from './ui/texttemplatesemptyview';
