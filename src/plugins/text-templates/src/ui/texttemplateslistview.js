@@ -27,7 +27,6 @@ export default class TextTemplatesListView extends View {
     _createList() {
         const listView = new ListView(this.locale);
         const dataList = JSON.parse(localStorage.getItem('ckTextTemplates'));
-        // const headingCommand = editor.commands.get('heading');
         const items = new Collection();
 
         for (const index in dataList) {
