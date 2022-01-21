@@ -58,6 +58,9 @@ export default class TextTemplatesListView extends View {
             buttonDelete.delegate('execute').to(this, 'delete');
             buttonDelete.class = 'ck-texttemplates-delete-item'
             buttonDelete.icon = icons.cancel;
+            buttonDelete.bind('commandId').to({
+                commandId: model.commandId
+            });
 
             buttonView.delegate('execute').to(this, 'insert');
             buttonView.bind(...Object.keys(model)).to(model);
@@ -73,6 +76,7 @@ export default class TextTemplatesListView extends View {
 }
 
 function strip(html) {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
+    const tmp = document.implementation.createHTMLDocument('New').body;
+    tmp.innerHTML = html.replace(/(<\/(?:p|h[1-6])>)/gi, ' $1').replace(/^&nbsp;/i, '');
+    return tmp.textContent || tmp.innerText || '';
 }

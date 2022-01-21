@@ -29,7 +29,7 @@ export default class TextTemplates extends Plugin {
             const button = dropdownView.buttonView;
 
             button.set({
-                label: t('Текстовые шаблоны'),
+                label: t('Вставить шаблон'),
                 icon: templatesTextIcon,
                 tooltip: true
             });
@@ -43,8 +43,6 @@ export default class TextTemplates extends Plugin {
 
             let dropdownPanelContent;
             dropdownView.on('change:isOpen', (e) => {
-                console.log('change:isOpen');
-
                 if (!e.source.isOpen) {
                     dropdownView.off('delete');
                     dropdownView.off('insert');
@@ -57,10 +55,8 @@ export default class TextTemplates extends Plugin {
                 const model = editor.model;
                 const selection = model.document.selection;
                 const content = model.getSelectedContent(selection);
-                this.ckTextTemplates = localStorage.getItem('ckTextTemplates');
 
-                const ckTextTemplates = this.ckTextTemplates ? JSON.parse(this.ckTextTemplates) : [];
-
+                const ckTextTemplates = this._getItems();
                 if (content.isEmpty && !ckTextTemplates.length) {
                     dropdownPanelContent = this._createDropdownPanelEmptyContent(locale);
                 } else if (content.isEmpty && ckTextTemplates.length > 0) {
@@ -94,12 +90,28 @@ export default class TextTemplates extends Plugin {
         });
     }
 
+    _getItems() {
+        try {
+            const items = localStorage.getItem('ckTextTemplates');
+            return items ? JSON.parse(items) : [];
+        } catch (ignore) {
+            return [];
+        }
+    }
+
+    _setItems(items) {
+        try {
+            localStorage.setItem('ckTextTemplates', JSON.stringify(items));
+        } catch (ignore) {
+        }
+    }
+
     _createDropdownPanelListContent(locale, dropdownView, dataList) {
         const list = new TextTemplatesListView(locale, dataList);
 
         dropdownView.on('delete', (e) => {
-            const newList = dataList.filter(data => data.id !== e.source.commandId);
-            localStorage.setItem('ckTextTemplates', JSON.stringify(newList));
+            const items = dataList.filter(data => data.id !== e.source.commandId);
+            this._setItems(items);
             closeUI(this.editor, dropdownView);
         });
 
@@ -123,10 +135,10 @@ export default class TextTemplates extends Plugin {
         const form = new TextTemplatesFormView(getFormValidators(this.editor.t), locale);
         dropdownView.on('submit', () => {
             if (form.isValid()) {
-                let data = this.ckTextTemplates ? JSON.parse(this.ckTextTemplates) : [];
-                const id = data.length > 0 ? +data[data.length - 1].id + 1 : 1;
-                data.push({name: form.name, content: selectedContent, id});
-                localStorage.setItem('ckTextTemplates', JSON.stringify(data));
+                const items = this._getItems();
+                const id = items.length > 0 ? +items[items.length - 1].id + 1 : 1;
+                items.push({ name: form.name, content: selectedContent, id });
+                this._setItems(items);
                 closeUI(this.editor, dropdownView);
             }
         });

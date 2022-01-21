@@ -1,7 +1,7 @@
 .ck.ck-texttemplates-list {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 200px;
+    max-height: 300px;
     width: 300px;
 }
 
@@ -11,12 +11,20 @@
     overflow: hidden;
 }
 
+.ck.ck-texttemplates-list .ck.ck-button__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    width: 100%;
+}
+
 .ck.ck-texttemplates-list .ck.ck-tooltip {
     visibility: visible;
     opacity: 1;
     position: static;
     transform: none;
     width: 100%;
+    margin-top: -10px;
 }
 
 .ck.ck-texttemplates-list .ck.ck-tooltip .ck.ck-tooltip__text {
@@ -41,5 +49,6 @@
 }
 
 .ck.ck-texttemplates-list .ck.ck-list__item .ck-texttemplates-delete-item {
-    width: 45px;
+    padding: 2px;
+    width: auto;
 }
