@@ -1,0 +1,43 @@
+.ck.ck-texttemplates-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 200px;
+    width: 300px;
+}
+
+.ck.ck-texttemplates-list .ck.ck-button.ck-button_with-text {
+    flex-direction: column-reverse;
+    align-items: start;
+}
+
+.ck.ck-texttemplates-list .ck.ck-tooltip {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    transform: none;
+}
+
+.ck.ck-texttemplates-list .ck.ck-tooltip .ck.ck-tooltip__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: static;
+    background-color: inherit;
+    color: inherit;
+    padding: 0;
+    font-style: italic;
+    width: 235px;
+}
+
+.ck.ck-texttemplates-list .ck.ck-tooltip .ck.ck-tooltip__text:after {
+    display: none;
+}
+
+.ck.ck-texttemplates-list .ck.ck-list__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--ck-color-base-border);
+}
+
+.ck.ck-texttemplates-list .ck.ck-list__item .ck-texttemplates-delete-item {
+    width: auto;
+}
