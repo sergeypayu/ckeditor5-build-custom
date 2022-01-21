@@ -1,5 +1,4 @@
 import { Plugin } from '@ckeditor/ckeditor5-core/src';
-import getSelectedContent from '@ckeditor/ckeditor5-engine/src/model/utils/getselectedcontent';
 import { createDropdown } from '@ckeditor/ckeditor5-ui';
 
 import templatesTextIcon from '../theme/icons/templates-text.svg';
@@ -49,21 +48,19 @@ export default class TextTemplates extends Plugin {
                 }
                 const model = editor.model;
                 const selection = model.document.selection;
-                const content = getSelectedContent(model, selection);
+                const content = model.getSelectedContent(selection);
                 this.ckTextTemplates = localStorage.getItem('ckTextTemplates');
 
                 const ckTextTemplates = this.ckTextTemplates ? JSON.parse(this.ckTextTemplates) : [];
 
                 dropdownView.panelView.children.clear();
 
-                if (content.isEmpty && !ckTextTemplates.length > 0) {
+                if (content.isEmpty && !ckTextTemplates.length) {
                     dropdownPanelContent = this._createDropdownPanelEmptyContent(locale);
-                }
-                if (content.isEmpty && ckTextTemplates.length > 0) {
+                } else if (content.isEmpty && ckTextTemplates.length > 0) {
                     dropdownPanelContent = this._createDropdownPanelListContent(locale, dropdownView);
-                }
-                if (!content.isEmpty) {
-                    const selectedContent = editor.data.stringify(model.getSelectedContent(selection));
+                } else if (!content.isEmpty) {
+                    const selectedContent = editor.data.stringify(content);
                     dropdownPanelContent = this._createDropdownPanelFormContent(locale, dropdownView, selectedContent);
                 }
 
