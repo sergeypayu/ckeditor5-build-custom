@@ -118,7 +118,6 @@ export default class TextTemplates extends Plugin {
                 closeUI(this.editor, dropdownView);
             }
         });
-        dropdownView.once('change:isOpen', () => form.resetFormStatus());
         dropdownView.on('cancel', () => closeUI(this.editor, dropdownView));
 
         form.delegate('submit', 'cancel').to(dropdownView);
