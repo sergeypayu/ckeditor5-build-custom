@@ -26,9 +26,9 @@ export default class TextTemplates extends Plugin {
 
         editor.ui.componentFactory.add('textTemplates', locale => {
             const dropdownView = createDropdown(locale);
-            let dropdownPanelContent;
+            const button = dropdownView.buttonView;
 
-            dropdownView.buttonView.set({
+            button.set({
                 label: t('Текстовые шаблоны'),
                 icon: templatesTextIcon,
                 tooltip: true
@@ -41,19 +41,25 @@ export default class TextTemplates extends Plugin {
                 editor.editing.view.focus();
             });
 
+            let dropdownPanelContent;
             dropdownView.on('change:isOpen', (e) => {
+                console.log('change:isOpen');
+
                 if (!e.source.isOpen) {
+                    dropdownView.off('delete');
+                    dropdownView.off('insert');
                     dropdownView.off('submit');
+                    dropdownView.off('cancel');
+                    dropdownView.panelView.children.clear();
                     return;
                 }
+
                 const model = editor.model;
                 const selection = model.document.selection;
                 const content = model.getSelectedContent(selection);
                 this.ckTextTemplates = localStorage.getItem('ckTextTemplates');
 
                 const ckTextTemplates = this.ckTextTemplates ? JSON.parse(this.ckTextTemplates) : [];
-
-                dropdownView.panelView.children.clear();
 
                 if (content.isEmpty && !ckTextTemplates.length) {
                     dropdownPanelContent = this._createDropdownPanelEmptyContent(locale);
@@ -69,12 +75,27 @@ export default class TextTemplates extends Plugin {
                 }
             });
 
+            button.on('open', () => {
+                if (dropdownPanelContent instanceof TextTemplatesFormView) {
+                    dropdownPanelContent.disableCssTransitions();
+
+                    // Make sure that each time the panel shows up, the URL field remains in sync with the value of
+                    // the command. If the user typed in the input, then canceled (`urlInputView#fieldView#value` stays
+                    // unaltered) and re-opened it without changing the value of the media command (e.g. because they
+                    // didn't change the selection), they would see the old value instead of the actual value of the
+                    // command.
+                    dropdownPanelContent.nameInputView.fieldView.select();
+                    dropdownPanelContent.focus();
+                    dropdownPanelContent.enableCssTransitions();
+                }
+            }, { priority: 'low' } );
+
             return dropdownView;
         });
     }
 
     _createDropdownPanelListContent(locale, dropdownView, dataList) {
-        const list = new TextTemplatesListView(locale);
+        const list = new TextTemplatesListView(locale, dataList);
 
         dropdownView.on('delete', (e) => {
             const newList = dataList.filter(data => data.id !== e.source.commandId);
@@ -110,7 +131,6 @@ export default class TextTemplates extends Plugin {
             }
         });
 
-        dropdownView.on('change:isOpen', () => form.resetFormStatus());
         dropdownView.on('cancel', () => closeUI(this.editor, dropdownView));
 
         form.delegate('submit', 'cancel').to(dropdownView);
