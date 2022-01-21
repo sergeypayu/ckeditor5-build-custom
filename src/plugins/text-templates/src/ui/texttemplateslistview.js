@@ -5,10 +5,10 @@ import { icons } from '@ckeditor/ckeditor5-core';
 import '../../theme/texttemplateslistview.css';
 
 export default class TextTemplatesListView extends View {
-    constructor(locale, editor, dropdown) {
+    constructor(locale) {
         super(locale);
 
-        this.items = this._createList(editor, dropdown);
+        this.items = this._createList();
 
         this.setTemplate({
             tag: 'div',
@@ -24,10 +24,10 @@ export default class TextTemplatesListView extends View {
         });
     }
 
-    _createList(editor, dropdown) {
+    _createList() {
         const listView = new ListView(this.locale);
         const dataList = JSON.parse(localStorage.getItem('ckTextTemplates'));
-        const headingCommand = editor.commands.get('heading');
+        // const headingCommand = editor.commands.get('heading');
         const items = new Collection();
 
         for (const index in dataList) {
@@ -42,9 +42,7 @@ export default class TextTemplatesListView extends View {
                 })
             };
 
-            def.model.bind('isOn').to(headingCommand, 'value', value => value === data.content);
             def.model.set({
-                commandName: 'heading',
                 commandValue: data.content,
                 commandId: data.id
             });
@@ -59,22 +57,12 @@ export default class TextTemplatesListView extends View {
             let buttonView = new ButtonView(this.locale);
             let buttonDelete = new ButtonView(this.locale);
 
-            buttonDelete.on('execute', () => {
-                const newList = dataList.filter(data => data.id !== model.commandId);
-                localStorage.setItem('ckTextTemplates', JSON.stringify(newList));
-                closeUI(this.editor, dropdown);
-            });
+            buttonDelete.delegate('execute').to(this, 'delete');
             buttonDelete.class = 'ck-texttemplates-delete-item'
             buttonDelete.icon = icons.cancel;
 
-            buttonView.on('execute', () => {
-                const viewFragment = editor.data.processor.toView(model.commandValue);
-                const modelFragment = editor.data.toModel(viewFragment);
-                editor.model.insertContent(modelFragment);
-                closeUI(this.editor, dropdown);
-            });
+            buttonView.delegate('execute').to(this, 'insert');
             buttonView.bind(...Object.keys(model)).to(model);
-            buttonView.delegate('execute').to(listItemView);
 
             listItemView.children.add(buttonView);
             listItemView.children.add(buttonDelete);
@@ -84,11 +72,6 @@ export default class TextTemplatesListView extends View {
 
         return listView;
     }
-}
-
-function closeUI(editor, dropdown) {
-    editor.editing.view.focus();
-    dropdown.isOpen = false;
 }
 
 function strip(html) {

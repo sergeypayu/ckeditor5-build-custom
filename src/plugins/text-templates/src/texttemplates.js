@@ -58,7 +58,7 @@ export default class TextTemplates extends Plugin {
                 if (content.isEmpty && !ckTextTemplates.length) {
                     dropdownPanelContent = this._createDropdownPanelEmptyContent(locale);
                 } else if (content.isEmpty && ckTextTemplates.length > 0) {
-                    dropdownPanelContent = this._createDropdownPanelListContent(locale, dropdownView);
+                    dropdownPanelContent = this._createDropdownPanelListContent(locale, dropdownView, ckTextTemplates);
                 } else if (!content.isEmpty) {
                     const selectedContent = editor.data.stringify(content);
                     dropdownPanelContent = this._createDropdownPanelFormContent(locale, dropdownView, selectedContent);
@@ -73,10 +73,23 @@ export default class TextTemplates extends Plugin {
         });
     }
 
-    _createDropdownPanelListContent(locale, dropdownView) {
-        const list = new TextTemplatesListView(locale, this.editor, dropdownView);
+    _createDropdownPanelListContent(locale, dropdownView, dataList) {
+        const list = new TextTemplatesListView(locale);
 
-        list.items.delegate('execute').to(dropdownView);
+        dropdownView.on('delete', (e) => {
+            const newList = dataList.filter(data => data.id !== e.source.commandId);
+            localStorage.setItem('ckTextTemplates', JSON.stringify(newList));
+            closeUI(this.editor, dropdownView);
+        });
+
+        dropdownView.on('insert', (e) => {
+            const viewFragment = this.editor.data.processor.toView(e.source.commandValue);
+            const modelFragment = this.editor.data.toModel(viewFragment);
+            this.editor.model.insertContent(modelFragment);
+            closeUI(this.editor, dropdownView);
+        });
+
+        list.delegate('delete','insert').to(dropdownView);
 
         return list;
     }
