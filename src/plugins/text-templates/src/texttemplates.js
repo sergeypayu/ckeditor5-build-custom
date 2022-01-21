@@ -47,7 +47,6 @@ export default class TextTemplates extends Plugin {
                     dropdownView.off('insert');
                     dropdownView.off('submit');
                     dropdownView.off('cancel');
-                    dropdownView.off('change:isOpen');
                     return;
                 }
                 const model = editor.model;
@@ -82,14 +81,17 @@ export default class TextTemplates extends Plugin {
 
         dropdownView.on('delete', (e) => {
             const newList = dataList.filter(data => data.id !== e.source.commandId);
+
             localStorage.setItem('ckTextTemplates', JSON.stringify(newList));
+
             closeUI(this.editor, dropdownView);
         });
-
         dropdownView.on('insert', (e) => {
             const viewFragment = this.editor.data.processor.toView(e.source.commandValue);
             const modelFragment = this.editor.data.toModel(viewFragment);
+
             this.editor.model.insertContent(modelFragment);
+
             closeUI(this.editor, dropdownView);
         });
 
@@ -104,20 +106,23 @@ export default class TextTemplates extends Plugin {
 
     _createDropdownPanelFormContent(locale, dropdownView, selectedContent) {
         const form = new TextTemplatesFormView(getFormValidators(this.editor.t), locale);
+
         dropdownView.on('submit', () => {
             if (form.isValid()) {
                 let data = this.ckTextTemplates ? JSON.parse(this.ckTextTemplates) : [];
                 const id = data.length > 0 ? +data[data.length - 1].id + 1 : 1;
+
                 data.push({name: form.name, content: selectedContent, id});
                 localStorage.setItem('ckTextTemplates', JSON.stringify(data));
+
                 closeUI(this.editor, dropdownView);
             }
         });
-
         dropdownView.on('change:isOpen', () => form.resetFormStatus());
         dropdownView.on('cancel', () => closeUI(this.editor, dropdownView));
 
         form.delegate('submit', 'cancel').to(dropdownView);
+
         return form;
     }
 }
