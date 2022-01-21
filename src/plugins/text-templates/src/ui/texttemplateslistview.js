@@ -5,10 +5,10 @@ import { icons } from '@ckeditor/ckeditor5-core';
 import '../../theme/texttemplateslistview.css';
 
 export default class TextTemplatesListView extends View {
-    constructor(locale) {
+    constructor(locale, dataList) {
         super(locale);
 
-        this.items = this._createList();
+        this.items = this._createList(dataList);
 
         this.setTemplate({
             tag: 'div',
@@ -24,9 +24,8 @@ export default class TextTemplatesListView extends View {
         });
     }
 
-    _createList() {
+    _createList(dataList) {
         const listView = new ListView(this.locale);
-        const dataList = JSON.parse(localStorage.getItem('ckTextTemplates'));
         const items = new Collection();
 
         for (const index in dataList) {
@@ -59,6 +58,9 @@ export default class TextTemplatesListView extends View {
             buttonDelete.delegate('execute').to(this, 'delete');
             buttonDelete.class = 'ck-texttemplates-delete-item'
             buttonDelete.icon = icons.cancel;
+            buttonDelete.bind('commandId').to({
+                commandId: model.commandId
+            });
 
             buttonView.delegate('execute').to(this, 'insert');
             buttonView.bind(...Object.keys(model)).to(model);

@@ -21,6 +21,7 @@ export default class TextTemplatesEmptyView extends View {
             attributes: {
                 class: [
                     'ck',
+                    'ck-texttemplates-form',
                     'ck-texttemplates-empty'
                 ]
             }
