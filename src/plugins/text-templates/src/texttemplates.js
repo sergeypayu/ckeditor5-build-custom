@@ -43,7 +43,11 @@ export default class TextTemplates extends Plugin {
 
             dropdownView.on('change:isOpen', (e) => {
                 if (!e.source.isOpen) {
+                    dropdownView.off('delete');
+                    dropdownView.off('insert');
                     dropdownView.off('submit');
+                    dropdownView.off('cancel');
+                    dropdownView.off('change:isOpen');
                     return;
                 }
                 const model = editor.model;
