@@ -1,17 +1,14 @@
-import {
-    ButtonView,
-    FocusCycler,
-    LabeledFieldView,
-    View,
-    ViewCollection,
-    createLabeledInputText,
-    injectCssTransitionDisabler,
-    submitHandler
-} from '@ckeditor/ckeditor5-ui';
 import { FocusTracker, KeystrokeHandler } from '@ckeditor/ckeditor5-utils';
+import {
+    View,
+    createLabeledInputText,
+    LabeledFieldView,
+    ButtonView,
+    submitHandler,
+    ViewCollection
+} from '@ckeditor/ckeditor5-ui';
 import { icons } from '@ckeditor/ckeditor5-core';
 
-import '@ckeditor/ckeditor5-ui/theme/components/responsive-form/responsiveform.css';
 import '../../theme/texttemplatesformview.css'
 
 export default class TextTemplatesFormView extends View {
@@ -30,45 +27,27 @@ export default class TextTemplatesFormView extends View {
 
         this.saveButtonView = this._createButton(t('Save'), icons.check, 'ck-button-save');
         this.saveButtonView.type = 'submit';
-        this.saveButtonView.bind( 'isEnabled' ).to( this, 'nameInputValue', value => !!value );
 
         this.cancelButtonView = this._createButton(t('Cancel'), icons.cancel, 'ck-button-cancel', 'cancel');
 
         this._focusables = new ViewCollection();
 
-        this._focusCycler = new FocusCycler( {
-            focusables: this._focusables,
-            focusTracker: this.focusTracker,
-            keystrokeHandler: this.keystrokes,
-            actions: {
-                // Navigate form fields backwards using the <kbd>Shift</kbd> + <kbd>Tab</kbd> keystroke.
-                focusPrevious: 'shift + tab',
-
-                // Navigate form fields forwards using the <kbd>Tab</kbd> key.
-                focusNext: 'tab'
-            }
-        } );
-
         this._validators = validators;
 
         this.setTemplate({
             tag: 'form',
-            attributes: {
-                class: [
-                    'ck',
-                    'ck-texttemplates-form',
-                    'ck-responsive-form'
-                ],
-                tabindex: '-1'
-            },
             children: [
                 this.nameInputView,
                 this.saveButtonView,
                 this.cancelButtonView
             ],
+            attributes: {
+                class: [
+                    'ck',
+                    'ck-texttemplates-form'
+                ]
+            }
         });
-
-        injectCssTransitionDisabler( this );
     }
 
     render() {
@@ -102,10 +81,6 @@ export default class TextTemplatesFormView extends View {
         this.listenTo(this.nameInputView.element, 'selectstart', (evt, domEvt) => {
             domEvt.stopPropagation();
         }, {priority: 'high'});
-    }
-
-    focus() {
-        this._focusCycler.focusFirst();
     }
 
     get name() {
