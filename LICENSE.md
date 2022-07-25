@@ -13,9 +13,12 @@ Where not otherwise indicated, all CKEditor content is authored by CKSource engi
 
 The following libraries are included in CKEditor under the [MIT license](https://opensource.org/licenses/MIT):
 
-* Lo-Dash - Copyright (c) JS Foundation and other contributors https://js.foundation/. Based on Underscore.js, copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors http://underscorejs.org/.
+* lodash - Copyright (c) JS Foundation and other contributors https://js.foundation/. Based on Underscore.js, copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors http://underscorejs.org/.
+* marked - Copyright (c) Christopher Jeffrey. (MIT License)
+* turndown - turndown is copyright © Dom Christie and released under the MIT license.
+* turndown-plugin-gfm - turndown-plugin-gfm is copyright © Dom Christie and released under the MIT license.
 
 Trademarks
 ----------
 
-**CKEditor** is a trademark of [CKSource](http://cksource.com) Frederico Knabben. All other brand and product names are trademarks, registered trademarks or service marks of their respective holders.
+**CKEditor** is a trademark of [CKSource Holding sp. z o.o.](https://cksource.com) All other brand and product names are trademarks, registered trademarks or service marks of their respective holders.
