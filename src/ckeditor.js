@@ -39,14 +39,16 @@ import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
 import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
 import { SimpleUploadAdapter } from '@ckeditor/ckeditor5-upload';
 import { ImageResize } from '@ckeditor/ckeditor5-image';
+import { Markdown } from '@ckeditor/ckeditor5-markdown-gfm';
 
 import { FileBrowser } from './plugins/file-browser/src';
 import { TextTemplates } from "./plugins/text-templates/src";
 
-export default class ClassicEditor extends ClassicEditorBase {}
+class ClassicEditor extends ClassicEditorBase {}
+class MarkdownEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
-ClassicEditor.builtinPlugins = [
+const builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -83,8 +85,8 @@ ClassicEditor.builtinPlugins = [
 	TextTemplates,
 ];
 
-// Editor configuration.
-ClassicEditor.defaultConfig = {
+// Editors configurations.
+const defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
@@ -131,4 +133,14 @@ ClassicEditor.defaultConfig = {
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'ru'
+};
+
+ClassicEditor.builtinPlugins = builtinPlugins
+ClassicEditor.defaultConfig = defaultConfig 
+
+MarkdownEditor.builtinPlugins = [...builtinPlugins, Markdown]
+MarkdownEditor.defaultConfig = defaultConfig 
+
+export default {
+	ClassicEditor, MarkdownEditor
 };
