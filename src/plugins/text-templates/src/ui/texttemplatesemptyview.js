@@ -7,6 +7,8 @@ export default class TextTemplatesEmptyView extends View {
     constructor(locale) {
         super(locale);
 
+        const t = locale.t;
+
         this.setTemplate({
             tag: 'div',
             children: [
@@ -14,7 +16,7 @@ export default class TextTemplatesEmptyView extends View {
                     tag: 'span',
                     children: [
                         {
-                            text: 'Нет шаблонов'
+                            text: t('Немає шаблонів')
                         }
                     ]
                 }

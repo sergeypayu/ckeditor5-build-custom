@@ -67,7 +67,7 @@ export default class FileBrowserCommand extends Command {
 		window.addEventListener('message', this.messageHandlerListener, false);
 
 		// open popup
-		const popupWindow = window.open(fileBrowserUrl, t('Insert image or file'),'popup,left=100,top=100,width=930,height=800');
+		const popupWindow = window.open(fileBrowserUrl, t('Вставити зображення чи файл'),'popup,left=100,top=100,width=930,height=800');
 
 		// check if popup is closed in polling cycle
 		this.pollTimer = window.setInterval(() => {
@@ -107,8 +107,8 @@ function insertImages(editor, urls) {
 		const notification = editor.plugins.get('Notification');
 		const t = editor.locale.t;
 
-		notification.showWarning(t('Could not insert image at the current position.'), {
-			title: t('Inserting image failed'),
+		notification.showWarning(t('Не вдалося вставити зображення в поточну позицію.'), {
+			title: t('Не вдалося вставити зображення'),
 			namespace: 'ckfinder'
 		} );
 

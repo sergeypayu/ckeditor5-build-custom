@@ -30,7 +30,7 @@ export default class FileBrowserUI extends Plugin {
 			const button = new ButtonView(locale);
 
 			button.set({
-				label: t('Insert image or file'),
+				label: t('Вставити зображення чи файл'),
 				icon: browseFilesIcon,
 				tooltip: true
 			});

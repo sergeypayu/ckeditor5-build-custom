@@ -29,7 +29,7 @@ export default class TextTemplates extends Plugin {
             const button = dropdownView.buttonView;
 
             button.set({
-                label: t('Вставить шаблон'),
+                label: t('Вставити шаблон'),
                 icon: templatesTextIcon,
                 tooltip: true
             });
@@ -124,11 +124,21 @@ export default class TextTemplates extends Plugin {
 
         list.delegate('delete','insert').to(dropdownView);
 
+        list.focus = () =>  {
+            // не робимо нічого, це треба щоб уникнути ui-dropdown-panel-focus-child-missing-focus помилки
+        };
+
         return list;
     }
 
     _createDropdownPanelEmptyContent(locale) {
-        return new TextTemplatesEmptyView(locale);
+        const view = new TextTemplatesEmptyView(locale);
+
+        view.focus = () =>  {
+            // не робимо нічого, це треба щоб уникнути ui-dropdown-panel-focus-child-missing-focus помилки
+        };
+
+        return view;
     }
 
     _createDropdownPanelFormContent(locale, dropdownView, selectedContent) {
@@ -146,6 +156,11 @@ export default class TextTemplates extends Plugin {
         dropdownView.on('cancel', () => closeUI(this.editor, dropdownView));
 
         form.delegate('submit', 'cancel').to(dropdownView);
+
+        form.focus = () =>  {
+            // не робимо нічого, це треба щоб уникнути ui-dropdown-panel-focus-child-missing-focus помилки
+        };
+
         return form;
     }
 }
@@ -159,7 +174,7 @@ function getFormValidators(t) {
     return [
         form => {
             if (!form.name.length) {
-                return t('Имя не должно быть пустым.');
+                return t('Назва не повинна бути порожньою.');
             }
         }
     ];

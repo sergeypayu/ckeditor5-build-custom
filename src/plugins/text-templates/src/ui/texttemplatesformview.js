@@ -138,10 +138,10 @@ export default class TextTemplatesFormView extends View {
         const labeledInput = new LabeledFieldView(this.locale, createLabeledInputText);
         const inputField = labeledInput.fieldView;
 
-        this._nameInputViewInfoDefault = t('Введите имя шаблона.');
-        this._nameInputViewInfoTip = t('Введите имя шаблона');
+        this._nameInputViewInfoDefault = t('Введіть назву шаблону.');
+        this._nameInputViewInfoTip = t('Введіть назву шаблону');
 
-        labeledInput.label = t('Имя шаблона');
+        labeledInput.label = t('Назва шаблону');
         labeledInput.infoText = this._nameInputViewInfoDefault;
 
         inputField.on('input', () => {

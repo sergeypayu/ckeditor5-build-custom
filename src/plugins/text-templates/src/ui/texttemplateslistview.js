@@ -1,4 +1,4 @@
-import { View, ListView, ListItemView, Model, ButtonView } from '@ckeditor/ckeditor5-ui';
+import { View, ListView, ListItemView, ViewModel, ButtonView } from '@ckeditor/ckeditor5-ui';
 import { Collection } from '@ckeditor/ckeditor5-utils';
 import { icons } from '@ckeditor/ckeditor5-core';
 
@@ -33,7 +33,7 @@ export default class TextTemplatesListView extends View {
             const titles = {};
             const def = {
                 type: 'button',
-                model: new Model({
+                model: new ViewModel({
                     label: data.name,
                     withText: true,
                     tooltip: strip(data.content)
