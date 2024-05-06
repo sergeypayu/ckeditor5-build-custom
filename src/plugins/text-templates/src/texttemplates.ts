@@ -27,7 +27,7 @@ export default class TextTemplates extends Plugin {
     /**
      * @inheritDoc
      */
-    public static get pluginName(): string {
+    public static get pluginName() {
         return 'TextTemplates' as const;
     }
 

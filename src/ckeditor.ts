@@ -14,13 +14,13 @@ import { EasyImage } from '@ckeditor/ckeditor5-easy-image';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import {
-	Image,
-	ImageCaption,
-	ImageResize,
-	ImageStyle,
-	ImageToolbar,
-	ImageUpload,
-	PictureEditing
+    Image,
+    ImageCaption,
+    ImageResize,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing
 } from '@ckeditor/ckeditor5-image';
 import { Indent } from '@ckeditor/ckeditor5-indent';
 import { Link } from '@ckeditor/ckeditor5-link';
@@ -44,100 +44,127 @@ import { TextTemplates } from './plugins/text-templates/src';
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
 
 class ClassicEditor extends ClassicEditorBase {
-	public static override builtinPlugins: any[] = [
-		Autoformat,
-		BlockQuote,
-		Bold,
-		Code,
-		CloudServices,
-		Essentials,
-		EasyImage,
-		FileBrowser,
-		Heading,
-		Image,
-		ImageCaption,
-		ImageResize,
-		ImageStyle,
-		ImageToolbar,
-		ImageUpload,
-		Indent,
-		Italic,
-		Link,
-		List,
-		MediaEmbed,
-		Paragraph,
-		PasteFromOffice,
-		PictureEditing,
-		RemoveFormat,
-		SourceEditing,
-		SpecialCharacters,
-		SpecialCharactersEssentials,
-		SimpleUploadAdapter,
-		Strikethrough,
-		Table,
-		TableToolbar,
-		TextTemplates,
-		TextTransformation,
-		Undo,
-	];
+    public static override builtinPlugins: ((typeof Autoformat) | typeof BlockQuote | typeof Bold | typeof Code | typeof CloudServices | typeof Essentials | typeof EasyImage | typeof FileBrowser | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof List | typeof MediaEmbed | typeof Paragraph | typeof PasteFromOffice | typeof PictureEditing | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof SimpleUploadAdapter | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TextTemplates | typeof TextTransformation | typeof Undo)[] = [
+        Autoformat,
+        BlockQuote,
+        Bold,
+        Code,
+        CloudServices,
+        Essentials,
+        EasyImage,
+        FileBrowser,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageResize,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Italic,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        RemoveFormat,
+        SourceEditing,
+        SpecialCharacters,
+        SpecialCharactersEssentials,
+        SimpleUploadAdapter,
+        Strikethrough,
+        Table,
+        TableToolbar,
+        TextTemplates,
+        TextTransformation,
+        Undo,
+    ];
 
-	public static override defaultConfig: EditorConfig = {
-		toolbar: {
-			items: [
-				'heading',
-				'|',
-				'removeFormat',
-				'bold',
-				'italic',
-				'specialCharacters',
-				'link',
-				'bulletedList',
-				'numberedList',
-				'|',
-				'outdent',
-				'indent',
-				'|',
-				'uploadImage',
-				'fileBrowser',
-				'blockQuote',
-				'textTemplates',
-				'insertTable',
-				'mediaEmbed',
-				'undo',
-				'redo',
-				'|',
-				'sourceEditing',
-			]
-		},
-		language: 'uk',
-		image: {
-			toolbar: [
-				'imageStyle:inline',
-				'imageStyle:block',
-				'imageStyle:side',
-				'|',
-				'imageTextAlternative',
-				'toggleImageCaption',
-			]
-		},
-		table: {
-			contentToolbar: [
-				'tableColumn',
-				'tableRow',
-				'mergeTableCells'
-			]
-		}
-	};
+    public static override defaultConfig: EditorConfig = {
+        toolbar: {
+            items: [
+                'heading',
+                '|',
+                'removeFormat',
+                'bold',
+                'italic',
+                'specialCharacters',
+                'link',
+                'bulletedList',
+                'numberedList',
+                '|',
+                'outdent',
+                'indent',
+                '|',
+                'uploadImage',
+                'fileBrowser',
+                'blockQuote',
+                'textTemplates',
+                'insertTable',
+                'mediaEmbed',
+                'undo',
+                'redo',
+                '|',
+                'sourceEditing',
+            ]
+        },
+        language: 'uk',
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'imageTextAlternative',
+                'toggleImageCaption',
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        }
+    };
 }
 
-class MarkdownEditor extends ClassicEditor {
-	public static override builtinPlugins = [
-		...super.builtinPlugins,
-		Markdown
-	]
+class MarkdownEditor extends ClassicEditorBase {
+    public static override builtinPlugins: (typeof Autoformat | typeof Bold | typeof Essentials | typeof Italic | typeof Link | typeof Paragraph | typeof PasteFromOffice | typeof RemoveFormat | typeof SourceEditing | typeof TextTemplates | typeof TextTransformation | typeof Undo | typeof Markdown)[] = [
+        Autoformat,
+        Bold,
+        Essentials,
+        Italic,
+        Link,
+        Paragraph,
+        PasteFromOffice,
+        RemoveFormat,
+        SourceEditing,
+        TextTemplates,
+        TextTransformation,
+        Undo,
+        Markdown
+    ];
+
+    public static override defaultConfig: EditorConfig = {
+        toolbar: {
+            items: [
+                'removeFormat',
+                'bold',
+                'italic',
+                'link',
+                '|',
+                'undo',
+                'redo',
+                '|',
+                'sourceEditing',
+            ]
+        },
+        language: 'uk'
+    };
 }
 
 export default {
-	ClassicEditor, MarkdownEditor
+    ClassicEditor, MarkdownEditor
 };
-

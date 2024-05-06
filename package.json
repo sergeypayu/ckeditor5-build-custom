@@ -1,6 +1,6 @@
 {
   "name": "@taxer/ckeditor5-build-custom",
-  "version": "41.3.1-5",
+  "version": "41.3.1-6",
   "author": "CKSource",
   "description": "A custom CKEditor 5 build made by the CKEditor 5 online builder.",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -47,6 +47,7 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "postbuild": "tsc --declaration --declarationDir build --stripInternal --emitDeclarationOnly"
   }
 }

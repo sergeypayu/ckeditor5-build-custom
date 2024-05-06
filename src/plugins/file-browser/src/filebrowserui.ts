@@ -12,7 +12,7 @@ export default class FileBrowserUI extends Plugin {
     /**
      * @inheritDoc
      */
-    public static get pluginName(): string {
+    public static get pluginName() {
         return 'FileBrowserUI' as const;
     }
 

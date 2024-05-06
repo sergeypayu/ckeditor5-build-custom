@@ -14,7 +14,7 @@ export default class FileBrowser extends Plugin {
     /**
      * @inheritDoc
      */
-    static get pluginName() {
-        return 'FileBrowser';
+    public static get pluginName() {
+        return 'FileBrowser' as const;
     }
 }

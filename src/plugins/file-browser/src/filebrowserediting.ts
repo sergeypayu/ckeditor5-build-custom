@@ -8,7 +8,7 @@ export default class FileBrowserEditing extends Plugin {
     /**
      * @inheritDoc
      */
-    public static get pluginName(): string {
+    public static get pluginName() {
         return 'FileBrowserEditing' as const;
     }
 
