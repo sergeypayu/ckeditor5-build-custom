@@ -44,7 +44,7 @@ import { TextTemplates } from './plugins/text-templates/src';
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
 
 class ClassicEditor extends ClassicEditorBase {
-	public static override builtinPlugins = [
+	public static override builtinPlugins: any[] = [
 		Autoformat,
 		BlockQuote,
 		Bold,
@@ -130,7 +130,6 @@ class ClassicEditor extends ClassicEditorBase {
 	};
 }
 
-// @ts-ignore
 class MarkdownEditor extends ClassicEditor {
 	public static override builtinPlugins = [
 		...super.builtinPlugins,
