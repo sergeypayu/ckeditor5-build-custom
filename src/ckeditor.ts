@@ -33,7 +33,7 @@ import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SimpleUploadAdapter } from '@ckeditor/ckeditor5-upload';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
 import { SpecialCharacters, SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
-import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import { Table, TableCellProperties, TableProperties, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 
@@ -45,7 +45,7 @@ import { LinkName } from './plugins/link-name/src';
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
 
 class ClassicEditor extends ClassicEditorBase {
-    public static override builtinPlugins: ((typeof Autoformat) | typeof BlockQuote | typeof Bold | typeof Code | typeof CloudServices | typeof Essentials | typeof EasyImage | typeof FileBrowser | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof LinkName | typeof List | typeof MediaEmbed | typeof Paragraph | typeof PasteFromOffice | typeof PictureEditing | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof SimpleUploadAdapter | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TextTemplates | typeof TextTransformation | typeof Undo)[] = [
+    public static override builtinPlugins: ((typeof Autoformat) | typeof BlockQuote | typeof Bold | typeof Code | typeof CloudServices | typeof Essentials | typeof EasyImage | typeof FileBrowser | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof LinkName | typeof List | typeof MediaEmbed | typeof Paragraph | typeof PasteFromOffice | typeof PictureEditing | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof SimpleUploadAdapter | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TableProperties | typeof TableCellProperties | typeof TextTemplates | typeof TextTransformation | typeof Undo)[] = [
         Autoformat,
         BlockQuote,
         Bold,
@@ -78,6 +78,8 @@ class ClassicEditor extends ClassicEditorBase {
         Strikethrough,
         Table,
         TableToolbar,
+        TableProperties,
+        TableCellProperties,
         TextTemplates,
         TextTransformation,
         Undo,
@@ -126,9 +128,17 @@ class ClassicEditor extends ClassicEditorBase {
             contentToolbar: [
                 'tableColumn',
                 'tableRow',
-                'mergeTableCells'
-            ]
-        }
+                'mergeTableCells',
+                'tableProperties',
+                'tableCellProperties',
+            ],
+            tableProperties: {
+                // The configuration of the TableProperties plugin.
+            },
+            tableCellProperties: {
+                // The configuration of the TableCellProperties plugin.
+            }
+        },
     };
 }
 

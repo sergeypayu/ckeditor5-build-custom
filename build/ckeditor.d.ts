@@ -23,14 +23,14 @@ import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SimpleUploadAdapter } from '@ckeditor/ckeditor5-upload';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
 import { SpecialCharacters, SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
-import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import { Table, TableCellProperties, TableProperties, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 import { FileBrowser } from './plugins/file-browser/src';
 import { TextTemplates } from './plugins/text-templates/src';
 import { LinkName } from './plugins/link-name/src';
 declare class ClassicEditor extends ClassicEditorBase {
-    static builtinPlugins: ((typeof Autoformat) | typeof BlockQuote | typeof Bold | typeof Code | typeof CloudServices | typeof Essentials | typeof EasyImage | typeof FileBrowser | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof LinkName | typeof List | typeof MediaEmbed | typeof Paragraph | typeof PasteFromOffice | typeof PictureEditing | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof SimpleUploadAdapter | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TextTemplates | typeof TextTransformation | typeof Undo)[];
+    static builtinPlugins: ((typeof Autoformat) | typeof BlockQuote | typeof Bold | typeof Code | typeof CloudServices | typeof Essentials | typeof EasyImage | typeof FileBrowser | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof LinkName | typeof List | typeof MediaEmbed | typeof Paragraph | typeof PasteFromOffice | typeof PictureEditing | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof SimpleUploadAdapter | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TableProperties | typeof TableCellProperties | typeof TextTemplates | typeof TextTransformation | typeof Undo)[];
     static defaultConfig: EditorConfig;
 }
 declare class MarkdownEditor extends ClassicEditorBase {
