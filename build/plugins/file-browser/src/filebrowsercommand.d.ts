@@ -1,5 +1,4 @@
-import { Editor } from '@ckeditor/ckeditor5-core';
-import { Command } from '@ckeditor/ckeditor5-core/src';
+import { Editor, Command } from 'ckeditor5';
 export default class FileBrowserCommand extends Command {
     private messageHandlerListener;
     private pollTimer;

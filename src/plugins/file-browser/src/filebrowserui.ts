@@ -1,5 +1,5 @@
-import { Plugin } from '@ckeditor/ckeditor5-core/src';
-import { ButtonView } from '@ckeditor/ckeditor5-ui/src';
+import { Plugin } from 'ckeditor5';
+import { ButtonView } from 'ckeditor5';
 
 import browseFilesIcon from '../theme/icons/browse-files.svg';
 

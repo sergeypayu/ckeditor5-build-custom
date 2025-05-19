@@ -1,5 +1,5 @@
-import { View } from '@ckeditor/ckeditor5-ui';
-import { type Locale } from '@ckeditor/ckeditor5-utils';
+import { View } from 'ckeditor5';
+import { type Locale } from 'ckeditor5';
 import '../../theme/texttemplateslistview.css';
 import { TemplateItemModel } from '../templateitemmodel';
 export default class TextTemplatesListView extends View<HTMLDivElement> {

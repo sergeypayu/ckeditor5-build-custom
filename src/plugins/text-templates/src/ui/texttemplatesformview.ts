@@ -8,9 +8,9 @@ import {
     createLabeledInputText,
     submitHandler,
     type FocusableView
-} from '@ckeditor/ckeditor5-ui';
-import { FocusTracker, KeystrokeHandler, type Locale } from '@ckeditor/ckeditor5-utils';
-import { icons } from '@ckeditor/ckeditor5-core';
+} from 'ckeditor5';
+import { FocusTracker, KeystrokeHandler, type Locale } from 'ckeditor5';
+import { icons } from 'ckeditor5';
 
 import '@ckeditor/ckeditor5-ui/theme/components/responsive-form/responsiveform.css';
 import '../../theme/texttemplatesformview.css'

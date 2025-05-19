@@ -1,5 +1,5 @@
-import { ButtonView, FocusCycler, InputTextView, LabeledFieldView, View, ViewCollection, type FocusableView } from '@ckeditor/ckeditor5-ui';
-import { FocusTracker, KeystrokeHandler, type Locale } from '@ckeditor/ckeditor5-utils';
+import { ButtonView, FocusCycler, InputTextView, LabeledFieldView, View, ViewCollection, type FocusableView } from 'ckeditor5';
+import { FocusTracker, KeystrokeHandler, type Locale } from 'ckeditor5';
 import '@ckeditor/ckeditor5-ui/theme/components/responsive-form/responsiveform.css';
 import '../../theme/texttemplatesformview.css';
 export default class TextTemplatesFormView extends View<HTMLFormElement> {

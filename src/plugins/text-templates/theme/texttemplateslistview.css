@@ -45,6 +45,9 @@
 .ck.ck-texttemplates-list .ck.ck-list__item {
     display: flex;
     justify-content: space-between;
+}
+
+.ck.ck-texttemplates-list .ck.ck-list__item:not(:last-child) {
     border-bottom: 1px solid var(--ck-color-base-border);
 }
 

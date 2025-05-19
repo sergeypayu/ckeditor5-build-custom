@@ -1,5 +1,5 @@
-import { View } from '@ckeditor/ckeditor5-ui';
-import { type Locale } from '@ckeditor/ckeditor5-utils';
+import { View } from 'ckeditor5';
+import { type Locale } from 'ckeditor5';
 
 import '@ckeditor/ckeditor5-ui/theme/components/responsive-form/responsiveform.css';
 import '../../theme/texttemplatesemptyview.css';

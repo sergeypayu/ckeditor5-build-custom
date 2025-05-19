@@ -17,12 +17,12 @@
 @mixin ck-media-phone {
     flex-wrap: wrap;
 
-& .ck-labeled-field-view {
-      flex-basis: 100%;
-  }
+    & .ck-labeled-field-view {
+          flex-basis: 100%;
+      }
 
-& .ck-button {
-      flex-basis: 50%;
-  }
-}
+    & .ck-button {
+          flex-basis: 50%;
+      }
+    }
 }

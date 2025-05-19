@@ -1,6 +1,6 @@
-import { View, ListView, ListItemView, ViewModel, ButtonView } from '@ckeditor/ckeditor5-ui';
-import { Collection, type Locale } from '@ckeditor/ckeditor5-utils';
-import { icons } from '@ckeditor/ckeditor5-core';
+import { View, ListView, ListItemView, ViewModel, ButtonView } from 'ckeditor5';
+import { Collection, type Locale } from 'ckeditor5';
+import { icons } from 'ckeditor5';
 
 import '../../theme/texttemplateslistview.css';
 import { TemplateItemModel } from '../templateitemmodel';

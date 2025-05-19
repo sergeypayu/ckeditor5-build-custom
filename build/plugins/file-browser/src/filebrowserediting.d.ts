@@ -1,5 +1,5 @@
-import { Plugin } from '@ckeditor/ckeditor5-core/src';
-import { Notification } from '@ckeditor/ckeditor5-ui/src';
+import { Plugin } from 'ckeditor5';
+import { Notification } from 'ckeditor5';
 export default class FileBrowserEditing extends Plugin {
     /**
      * @inheritDoc

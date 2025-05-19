@@ -1,4 +1,4 @@
-import { Plugin } from '@ckeditor/ckeditor5-core/src';
+import { Plugin } from 'ckeditor5';
 import FileBrowserEditing from './filebrowserediting';
 import FileBrowserUI from './filebrowserui';
 export default class FileBrowser extends Plugin {

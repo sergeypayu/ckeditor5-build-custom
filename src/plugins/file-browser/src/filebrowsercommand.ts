@@ -1,6 +1,5 @@
-import { Editor } from '@ckeditor/ckeditor5-core';
-import { Command } from '@ckeditor/ckeditor5-core/src';
-import { CKEditorError } from '@ckeditor/ckeditor5-utils/src';
+import { Editor, Command } from 'ckeditor5';
+import { CKEditorError } from 'ckeditor5';
 
 export default class FileBrowserCommand extends Command {
 

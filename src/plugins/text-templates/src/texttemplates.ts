@@ -1,12 +1,11 @@
-import { Editor } from '@ckeditor/ckeditor5-core';
-import { Command, Plugin } from '@ckeditor/ckeditor5-core/src';
+import { Editor, Command, Plugin } from 'ckeditor5';
 import {
     createDropdown,
     DropdownView,
     CssTransitionDisablerMixin,
     ViewWithCssTransitionDisabler
-} from '@ckeditor/ckeditor5-ui';
-import { type GetCallback, type ObservableChangeEvent, type Locale } from '@ckeditor/ckeditor5-utils';
+} from 'ckeditor5';
+import { type GetCallback, type ObservableChangeEvent, type Locale } from 'ckeditor5';
 
 import templatesTextIcon from '../theme/icons/templates-text.svg';
 import { TemplateItemModel } from './templateitemmodel';

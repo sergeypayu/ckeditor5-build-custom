@@ -1,6 +1,6 @@
-import { Plugin } from '@ckeditor/ckeditor5-core/src';
-import { Notification } from '@ckeditor/ckeditor5-ui/src';
-import { CKEditorError } from '@ckeditor/ckeditor5-utils/src';
+import { Plugin } from 'ckeditor5';
+import { Notification } from 'ckeditor5';
+import { CKEditorError } from 'ckeditor5';
 
 import FileBrowserCommand from './filebrowsercommand';
 

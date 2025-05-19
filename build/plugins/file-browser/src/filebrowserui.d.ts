@@ -1,4 +1,4 @@
-import { Plugin } from '@ckeditor/ckeditor5-core/src';
+import { Plugin } from 'ckeditor5';
 /**
  * The FileBrowser UI plugin. It introduces the `'fileBrowser'` toolbar button.
  *
