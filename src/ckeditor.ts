@@ -48,6 +48,7 @@ import coreTranslations from 'ckeditor5/translations/uk';
 import { FileBrowser } from './plugins/file-browser/src';
 import { TextTemplates } from './plugins/text-templates/src';
 import { LinkName } from './plugins/link-name/src';
+import { Blogcut } from './plugins/blogcut/src';
 
 import 'ckeditor5/ckeditor5.css';
 
@@ -91,6 +92,7 @@ class ClassicEditor extends ClassicEditorBase {
         TableProperties,
         TableCellProperties,
         TextTemplates,
+        Blogcut,
         TextTransformation,
         Undo,
     ];
@@ -115,6 +117,7 @@ class ClassicEditor extends ClassicEditorBase {
                 'fileBrowser',
                 'blockQuote',
                 'textTemplates',
+                'blogcut',
                 'insertTable',
                 'mediaEmbed',
                 'undo',

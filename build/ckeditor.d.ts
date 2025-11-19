@@ -6,9 +6,10 @@ import { ClassicEditor as ClassicEditorBase, Autoformat, Bold, Code, Italic, Str
 import { FileBrowser } from './plugins/file-browser/src';
 import { TextTemplates } from './plugins/text-templates/src';
 import { LinkName } from './plugins/link-name/src';
+import { Blogcut } from './plugins/blogcut/src';
 import 'ckeditor5/ckeditor5.css';
 declare class ClassicEditor extends ClassicEditorBase {
-    static builtinPlugins: (typeof SimpleUploadAdapter | typeof TextTransformation | typeof Autoformat | typeof Bold | typeof Code | typeof Italic | typeof Strikethrough | typeof BlockQuote | typeof CloudServices | typeof EasyImage | typeof Undo | typeof Essentials | typeof Paragraph | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Link | typeof List | typeof MediaEmbed | typeof PasteFromOffice | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof Table | typeof TableCellProperties | typeof TableProperties | typeof TableToolbar | typeof FileBrowser | typeof TextTemplates | typeof LinkName | typeof PictureEditing)[];
+    static builtinPlugins: (typeof SimpleUploadAdapter | typeof TextTransformation | typeof Autoformat | typeof Bold | typeof Code | typeof Italic | typeof Strikethrough | typeof BlockQuote | typeof CloudServices | typeof EasyImage | typeof Undo | typeof Essentials | typeof Paragraph | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Link | typeof List | typeof MediaEmbed | typeof PasteFromOffice | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof Table | typeof TableCellProperties | typeof TableProperties | typeof TableToolbar | typeof FileBrowser | typeof TextTemplates | typeof LinkName | typeof Blogcut | typeof PictureEditing)[];
     static defaultConfig: {
         toolbar: {
             items: string[];
