@@ -14,6 +14,7 @@ import {
     CloudServices,
     EasyImage,
     Essentials,
+    GeneralHtmlSupport,
     Heading,
     Image,
     ImageCaption,
@@ -34,6 +35,7 @@ import {
     SourceEditing,
     SpecialCharacters,
     SpecialCharactersEssentials,
+    Style,
     Table,
     TableCellProperties,
     TableProperties,
@@ -65,6 +67,7 @@ class ClassicEditor extends ClassicEditorBase {
         Essentials,
         EasyImage,
         FileBrowser,
+        GeneralHtmlSupport,
         Heading,
         Image,
         ImageCaption,
@@ -87,6 +90,7 @@ class ClassicEditor extends ClassicEditorBase {
         SpecialCharactersEssentials,
         SimpleUploadAdapter,
         Strikethrough,
+        Style,
         Table,
         TableToolbar,
         TableProperties,
@@ -100,7 +104,14 @@ class ClassicEditor extends ClassicEditorBase {
     public static override defaultConfig = {
         toolbar: {
             items: [
-                'heading',
+                'undo',
+                'redo',
+                '|',
+                {
+                    label: 'Fonts',
+                    icon: 'text',
+                    items: [ 'heading', 'style', ]
+                },
                 '|',
                 'removeFormat',
                 'bold',
@@ -119,9 +130,6 @@ class ClassicEditor extends ClassicEditorBase {
                 'textTemplates',
                 'blogcut',
                 'insertTable',
-                'mediaEmbed',
-                'undo',
-                'redo',
                 '|',
                 'sourceEditing',
             ]

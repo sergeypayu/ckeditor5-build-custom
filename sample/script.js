@@ -1,7 +1,16 @@
 CKEDITOR.ClassicEditor
 	.create( document.querySelector( '.editor' ), {
 		fileBrowser: { browseUrl: '/api2/admin/public_storage/index?dir=blog' },
-		simpleUpload: { uploadUrl: '/api2/admin/public_storage/upload?dir=blog' }
+		simpleUpload: { uploadUrl: '/api2/admin/public_storage/upload?dir=blog' },
+        style: {
+            definitions: [
+                {
+                    name: 'CTA block',
+                    element: 'div',
+                    classes: ['cta-block']
+                }
+            ],
+        }
 	} )
 	.then( editor => {
 		window.editor = editor;

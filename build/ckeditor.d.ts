@@ -2,17 +2,21 @@
  * @license Copyright (c) 2014-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-import { ClassicEditor as ClassicEditorBase, Autoformat, Bold, Code, Italic, Strikethrough, BlockQuote, CloudServices, EasyImage, Essentials, Heading, Image, ImageCaption, ImageResize, ImageStyle, ImageToolbar, ImageUpload, PictureEditing, Indent, Link, List, Markdown, MediaEmbed, Paragraph, PasteFromOffice, RemoveFormat, SimpleUploadAdapter, SourceEditing, SpecialCharacters, SpecialCharactersEssentials, Table, TableCellProperties, TableProperties, TableToolbar, TextTransformation, Undo } from 'ckeditor5';
+import { ClassicEditor as ClassicEditorBase, Autoformat, Bold, Code, Italic, Strikethrough, BlockQuote, CloudServices, EasyImage, Essentials, GeneralHtmlSupport, Heading, Image, ImageCaption, ImageResize, ImageStyle, ImageToolbar, ImageUpload, PictureEditing, Indent, Link, List, Markdown, MediaEmbed, Paragraph, PasteFromOffice, RemoveFormat, SimpleUploadAdapter, SourceEditing, SpecialCharacters, SpecialCharactersEssentials, Style, Table, TableCellProperties, TableProperties, TableToolbar, TextTransformation, Undo } from 'ckeditor5';
 import { FileBrowser } from './plugins/file-browser/src';
 import { TextTemplates } from './plugins/text-templates/src';
 import { LinkName } from './plugins/link-name/src';
 import { Blogcut } from './plugins/blogcut/src';
 import 'ckeditor5/ckeditor5.css';
 declare class ClassicEditor extends ClassicEditorBase {
-    static builtinPlugins: (typeof SimpleUploadAdapter | typeof TextTransformation | typeof Autoformat | typeof Bold | typeof Code | typeof Italic | typeof Strikethrough | typeof BlockQuote | typeof CloudServices | typeof EasyImage | typeof Undo | typeof Essentials | typeof Paragraph | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Link | typeof List | typeof MediaEmbed | typeof PasteFromOffice | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof Table | typeof TableCellProperties | typeof TableProperties | typeof TableToolbar | typeof FileBrowser | typeof TextTemplates | typeof LinkName | typeof Blogcut | typeof PictureEditing)[];
+    static builtinPlugins: (typeof SimpleUploadAdapter | typeof TextTransformation | typeof Autoformat | typeof Bold | typeof Code | typeof Italic | typeof Strikethrough | typeof BlockQuote | typeof CloudServices | typeof EasyImage | typeof Undo | typeof Essentials | typeof Paragraph | typeof Heading | typeof GeneralHtmlSupport | typeof Image | typeof ImageCaption | typeof ImageResize | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Link | typeof List | typeof MediaEmbed | typeof PasteFromOffice | typeof RemoveFormat | typeof SourceEditing | typeof SpecialCharacters | typeof SpecialCharactersEssentials | typeof Style | typeof Table | typeof TableCellProperties | typeof TableProperties | typeof TableToolbar | typeof FileBrowser | typeof TextTemplates | typeof LinkName | typeof Blogcut | typeof PictureEditing)[];
     static defaultConfig: {
         toolbar: {
-            items: string[];
+            items: (string | {
+                label: string;
+                icon: string;
+                items: string[];
+            })[];
         };
         language: string;
         translations: any[];
